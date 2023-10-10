@@ -6,4 +6,9 @@ const SignupSchema = [
   body("password").isString().isLength({ min: 6 }),
 ];
 
-module.exports = { SignupSchema };
+const LoginSchema = [
+  body("email").notEmpty().isEmail().normalizeEmail(),
+  body("password").notEmpty().isLength({ min: 6 }),
+];
+
+module.exports = { SignupSchema, LoginSchema };
